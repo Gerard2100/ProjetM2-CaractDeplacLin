@@ -32,9 +32,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity FIFO_fpga is
-    Port ( dac_out : out STD_LOGIC_VECTOR (11 downto 0);
+    Port ( adc_out : out STD_LOGIC_VECTOR (11 downto 0);
            haut_out : out STD_LOGIC_VECTOR (14 downto 0);
-           load_dac : in STD_LOGIC_VECTOR (11 downto 0);
+           load_adc : in STD_LOGIC_VECTOR (11 downto 0);
            load_haut : in STD_LOGIC_VECTOR (14 downto 0);
            enable : in STD_LOGIC;
            clk : in STD_LOGIC;
@@ -44,6 +44,7 @@ end FIFO_fpga;
 architecture Behavioral of FIFO_fpga is
 
 begin
+
 
 
 end Behavioral;
