@@ -57,7 +57,8 @@ begin
                 if reset = '1' then
                     result <= "000000000";
                 else
-                    temp_num <= '0' + dividend(7 downto 3);
+                    temp_num(3 downto 0) <= dividend(7 downto 4);
+                    temp_num(4) <='0';
                     complement_divisor <= not divisor + 1; 
                     padded_divisor(3 downto 0) <= complement_divisor;
                     padded_divisor(4) <= '0';
