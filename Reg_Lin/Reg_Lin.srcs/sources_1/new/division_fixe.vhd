@@ -47,7 +47,7 @@ constant endloop: integer  := 7;
 signal temp_result: std_logic_vector (4 downto 0);
 signal final_result: std_logic_vector(8 downto 0);
 signal temp_num  : std_logic_vector (4 downto 0);
-signal complement_divisor: std_logic_vector (4 downto 0);
+signal complement_divisor: std_logic_vector (3 downto 0);
 signal padded_divisor: std_logic_vector (4 downto 0);
 
 begin
@@ -59,23 +59,28 @@ begin
                 else
                     temp_num <= '0' + dividend(7 downto 3);
                     complement_divisor <= not divisor + 1; 
-                    padded_divisor <= '0' + complement_divisor;
+                    padded_divisor(3 downto 0) <= complement_divisor;
+                    padded_divisor(4) <= '0';
                     for i in 0 to endloop loop
                     
                         temp_result<= temp_num and padded_divisor;
                         
-                        final_result(9-i)<=temp_result(4);
+                        final_result(8-i)<=temp_result(4);
                         if temp_result(4) = '1' then --si on as une division possible
-                            if 4+i < endloop then   -- si on as atteind le bout du numérateur
-                                temp_num<=temp_num(3 downto 0)+ '0';
+                            if 4+i > endloop then   -- si on as atteind le bout du numérateur
+                                temp_num(4 downto 1)<=temp_num(3 downto 0);
+                                temp_num(0)<='0';
                             else
-                                temp_num<=temp_num(3 downto 0)+ dividend(7-(4+i));
+                                temp_num(4 downto 1)<=temp_num(3 downto 0);
+                                temp_num(0)<=dividend(7-(4+i));
                             end if;
                         else
-                            if 4+i < endloop then  -- si on as atteind le bout du numérateur
-                                temp_num<=temp_result(3 downto 0)+ '0';
+                            if 4+i > endloop then  -- si on as atteind le bout du numérateur
+                                temp_num(4 downto 1)<=temp_result(3 downto 0);
+                                temp_num(0)<='0';
                             else
-                                temp_num<=temp_result(3 downto 0)+ dividend(7-(4+i));
+                                temp_num(4 downto 1)<=temp_result(3 downto 0);
+                                temp_num(0)<=dividend(7-(4+i));
                             end if;
                         end if;
                     end loop; 
