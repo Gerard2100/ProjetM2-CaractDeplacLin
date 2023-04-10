@@ -47,12 +47,12 @@ signal cptITend: std_logic;
 signal cptIT : integer range 0 to moduloPeriod - 1;
 signal iterate: std_logic:='0';
 
-
+--calcul
 signal Unumerateur: unsigned(numLength downto 0);
 signal num_temporaire: unsigned((denumLength+1) downto 0);
 signal denum_temporaire: unsigned((denumLength+1) downto 0);
-
-
+signal temp_result: unsigned(denumLength downto 0);
+signal final_result: unsigned(moduloPeriod-1 downto 0);
 
 
 
@@ -112,6 +112,48 @@ Unumerateur <= unsigned(numerateur);
                     denum_temporaire(denumLength downto 0) <= not(denum_temporaire(denumLength downto 0)+1);
                     denum_temporaire(4)<='0';
                     num_temporaire <= Unumerateur((denumLength+1) downto 0);
+                    -- first it
+                    temp_result<= denum_temporaire + num_temporaire;
+                     
+                    final_result(7-cptIT) <= temp_result(denumLength);
+                    if temp_result(denumLength) = '1' then --si on as une division possible
+                        if denumLength+cptIT > numLength then   -- si on as atteind le bout du numérateur
+                            denum_temporaire(denumLength downto 1)<=denum_temporaire(3 downto 0);
+                            denum_temporaire(0)<='0';
+                        else
+                            denum_temporaire(denumLength downto 1)<=denum_temporaire(3 downto 0);
+                            denum_temporaire(0) <= Unumerateur(numLength-(denumLength+cptIT));
+                        end if;
+                    else
+                        if denumLength+cptIT > numLength then  -- si on as atteind le bout du numérateur
+                            denum_temporaire(denumLength downto 1)<=temp_result(3 downto 0);
+                            denum_temporaire(0)<='0';
+                        else
+                            denum_temporaire(denumLength downto 1)<=temp_result(3 downto 0);
+                            denum_temporaire(0)<=Unumerateur(numLength-(denumLength+cptIT));
+                        end if;
+                    end if;
+                else --standard it
+                    temp_result<= denum_temporaire + num_temporaire;
+                     
+                    final_result(7-cptIT) <= temp_result(denumLength);
+                    if temp_result(denumLength) = '1' then --si on as une division possible
+                        if denumLength+cptIT > numLength then   -- si on as atteind le bout du numérateur
+                            denum_temporaire(denumLength downto 1)<=denum_temporaire(3 downto 0);
+                            denum_temporaire(0)<='0';
+                        else
+                            denum_temporaire(denumLength downto 1)<=denum_temporaire(3 downto 0);
+                            denum_temporaire(0) <= Unumerateur(numLength-(denumLength+cptIT));
+                        end if;
+                    else
+                        if denumLength+cptIT > numLength then  -- si on as atteind le bout du numérateur
+                            denum_temporaire(denumLength downto 1)<=temp_result(3 downto 0);
+                            denum_temporaire(0)<='0';
+                        else
+                            denum_temporaire(denumLength downto 1)<=temp_result(3 downto 0);
+                            denum_temporaire(0)<=Unumerateur(numLength-(denumLength+cptIT));
+                        end if;
+                    end if; 
                 end if;
                 
             end if;
