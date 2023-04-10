@@ -12,7 +12,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity write_eeprom is
     Port ( addr : in STD_LOGIC_VECTOR (5 downto 0);     -- adresse sur 6 bits
-           data : in STD_LOGIC_VECTOR (15 downto 0);    -- données à stocker (hauteur ou tension)
+           data : in STD_LOGIC_VECTOR (15 downto 0);    -- données �  stocker (hauteur ou tension)
            bp_encodeur : in STD_LOGIC;                  -- Appui sur le BP encodeur pour commencer l'écriture
            reset : in STD_LOGIC;                        -- reset synchrone sur front montant
            clk : in STD_LOGIC;                          -- horloge 100 MHz
@@ -25,7 +25,7 @@ end write_eeprom;
 architecture Behavioral of write_eeprom is
 
 -- SIGNAUX INTERNES -- 
--- signaux pour la machine à états finie
+-- signaux pour la machine �  états finie
 type state_type is (idle, waitForCS, highSK, lowSK, endWrite); -- différents états de la FSM
 signal state : state_type;
 
@@ -47,7 +47,7 @@ constant moduloTWP : integer := 300000;
 signal cptTWP : integer range 0 to moduloTWP - 1;
 signal endTWP : std_logic;
 
--- signaux pour le registre à décalage
+-- signaux pour le registre �  décalage
 signal DI_reg : std_logic_vector (24 downto 0);
 
 signal bitIndex : integer range 0 to 24;
@@ -65,18 +65,19 @@ begin
                 case state is
                     when idle =>        if bp_encodeur = '1' then
                                             state <= waitForCS;
+                                            CS <= '1';
                                         end if; 
                     when waitForCS =>   if endTCSS = '1' then
                                             state <= highSK;
-                                            bitIndex <= 0;
+                                            --bitIndex <= 0;
                                         end if;
                     when highSK =>      if endHalfPeriod = '1' then
                                             state <= lowSK;
                                         end if;
-                    when lowSK =>       if endPeriod = '1' and bitIndex = '0' then
+                    when lowSK =>       if endPeriod = '1' and bitIndex = 0 then
                                             state <= endWrite;
-                                        elsif endPeriod = '1' and bitIndex =/ '0' then
-                                            state <= highSK
+                                        elsif endPeriod = '1' and bitIndex /= 1  then
+                                            state <= highSK;
                                         end if;
                     when endWrite =>    if endTWP = '1' then
                                             state <= idle;
@@ -112,8 +113,8 @@ begin
                 cpt1micro <= 0;
                 endHalfPeriod <= '0';
                 endPeriod <= '0';
-            elsif CS = '1' and endTCSS = '1' then -- buffer needed
-                case cpt is 
+            elsif endTCSS = '1' then
+                case cpt1micro is 
                     when moduloHalfPeriod - 2 =>    cpt1micro <= cpt1micro + 1;
                                                     endHalfPeriod <= '1';
                                                     endPeriod <= '0';
@@ -137,7 +138,7 @@ begin
             if reset = '1' or state = idle then
                 cptTCSS <= 0;
                 endTCSS <= '0';
-            elsif bp_encodeur = '1' then
+            elsif bp_encodeur = '1' and state = waitForCS then
                 case cptTCSS is
                     when moduloTCSS - 2 =>  cptTCSS <= moduloTCSS - 1;
                                             endTCSS <= '1';

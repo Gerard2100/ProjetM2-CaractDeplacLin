@@ -3,78 +3,48 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="division_sim_behav.wdb" id="1">
+      <db_ref path="write_eeprom_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="division_sim" />
+            <top_module name="write_eeprom_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="38800000fs"></ZoomStartTime>
-      <ZoomEndTime time="133000001fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="65300001fs"></ZoomEndTime>
+      <Cursor1Time time="16250000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="138"></ValueColumnWidth>
+      <ValueColumnWidth column_width="134"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
-   <wvobject fp_name="/division_sim/t_CLK" type="logic">
-      <obj_property name="ElementShortName">t_CLK</obj_property>
-      <obj_property name="ObjectShortName">t_CLK</obj_property>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/write_eeprom_tb/t_SK" type="logic">
+      <obj_property name="ElementShortName">t_SK</obj_property>
+      <obj_property name="ObjectShortName">t_SK</obj_property>
    </wvobject>
-   <wvobject fp_name="/division_sim/t_RESET" type="logic">
-      <obj_property name="ElementShortName">t_RESET</obj_property>
-      <obj_property name="ObjectShortName">t_RESET</obj_property>
+   <wvobject fp_name="/write_eeprom_tb/t_DI" type="logic">
+      <obj_property name="ElementShortName">t_DI</obj_property>
+      <obj_property name="ObjectShortName">t_DI</obj_property>
    </wvobject>
-   <wvobject fp_name="/division_sim/t_enable" type="logic">
-      <obj_property name="ElementShortName">t_enable</obj_property>
-      <obj_property name="ObjectShortName">t_enable</obj_property>
+   <wvobject fp_name="/write_eeprom_tb/t_CS" type="logic">
+      <obj_property name="ElementShortName">t_CS</obj_property>
+      <obj_property name="ObjectShortName">t_CS</obj_property>
    </wvobject>
-   <wvobject fp_name="/division_sim/t_dividend" type="array">
-      <obj_property name="ElementShortName">t_dividend[7:0]</obj_property>
-      <obj_property name="ObjectShortName">t_dividend[7:0]</obj_property>
+   <wvobject fp_name="/write_eeprom_tb/t_DO" type="logic">
+      <obj_property name="ElementShortName">t_DO</obj_property>
+      <obj_property name="ObjectShortName">t_DO</obj_property>
    </wvobject>
-   <wvobject fp_name="/division_sim/inst_div/dividend" type="array">
-      <obj_property name="ElementShortName">dividend[7:0]</obj_property>
-      <obj_property name="ObjectShortName">dividend[7:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
+   <wvobject fp_name="/write_eeprom_tb/uut/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
    </wvobject>
-   <wvobject fp_name="/division_sim/t_divisor" type="array">
-      <obj_property name="ElementShortName">t_divisor[3:0]</obj_property>
-      <obj_property name="ObjectShortName">t_divisor[3:0]</obj_property>
+   <wvobject fp_name="/write_eeprom_tb/t_bp_encodeur" type="logic">
+      <obj_property name="ElementShortName">t_bp_encodeur</obj_property>
+      <obj_property name="ObjectShortName">t_bp_encodeur</obj_property>
    </wvobject>
-   <wvobject fp_name="/division_sim/inst_div/divisor" type="array">
-      <obj_property name="ElementShortName">divisor[3:0]</obj_property>
-      <obj_property name="ObjectShortName">divisor[3:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/division_sim/t_result" type="array">
-      <obj_property name="ElementShortName">t_result[7:0]</obj_property>
-      <obj_property name="ObjectShortName">t_result[7:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/division_sim/inst_div/datavalid" type="logic">
-      <obj_property name="ElementShortName">datavalid</obj_property>
-      <obj_property name="ObjectShortName">datavalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/division_sim/inst_div/final_result" type="array">
-      <obj_property name="ElementShortName">final_result[7:0]</obj_property>
-      <obj_property name="ObjectShortName">final_result[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/division_sim/inst_div/temp_result" type="array">
-      <obj_property name="ElementShortName">temp_result[4:0]</obj_property>
-      <obj_property name="ObjectShortName">temp_result[4:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/division_sim/inst_div/temp_num" type="array">
-      <obj_property name="ElementShortName">temp_num[4:0]</obj_property>
-      <obj_property name="ObjectShortName">temp_num[4:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/division_sim/inst_div/padded_divisor" type="array">
-      <obj_property name="ElementShortName">padded_divisor[4:0]</obj_property>
-      <obj_property name="ObjectShortName">padded_divisor[4:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
+   <wvobject fp_name="/write_eeprom_tb/t_data" type="array">
+      <obj_property name="ElementShortName">t_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">t_data[15:0]</obj_property>
    </wvobject>
 </wave_config>

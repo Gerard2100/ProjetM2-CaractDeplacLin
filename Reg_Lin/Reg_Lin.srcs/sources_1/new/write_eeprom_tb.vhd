@@ -61,7 +61,7 @@ begin
        
     reset_proc : t_reset <= '1','0' after 10 ns;
 
-    bp_encodeur_proc : t_bp_encodeur <= '0', '1' after 10 ns, '0' after 20 ns;
+    bp_encodeur_proc : t_bp_encodeur <= '0', '1' after 10 ns;-- '0' after 25 ns;
 
     addr_proc : t_addr <= "000001";
 
