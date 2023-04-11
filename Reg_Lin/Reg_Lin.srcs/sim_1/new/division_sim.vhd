@@ -37,13 +37,14 @@ end division_sim;
 
 architecture Behavioral of division_sim is
 
-component division_fixe
+component division_fixe_clean
     Port ( clk : in STD_LOGIC;
            reset : in STD_LOGIC;
            enable: in std_logic;
-           dividend : in STD_LOGIC_vector (7 downto 0);
-           divisor : in STD_LOGIC_vector (3 downto 0);
-           result : OUT STD_LOGIC_vector (7 downto 0));
+           numerateur : in STD_LOGIC_vector (7 downto 0);
+           denominateur : in STD_LOGIC_vector (3 downto 0);
+           result : OUT STD_LOGIC_vector (7 downto 0);
+           data_valid : out std_logic);
 end component;
 
 signal t_CLK : STD_LOGIC;
@@ -52,16 +53,18 @@ signal t_enable : STD_LOGIC;
 signal t_dividend : STD_LOGIC_vector (7 downto 0):= "10000111";
 signal t_divisor : STD_LOGIC_vector (3 downto 0):="0110";
 signal t_result : STD_LOGIC_vector (7 downto 0);
+signal t_valid : std_logic;
 
 begin
 
-inst_div: division_fixe Port Map(
+inst_div: division_fixe_clean Port Map(
     clk=>t_clk,
     reset=>t_reset,
     enable=>t_enable,
-    dividend=>t_dividend,
-    divisor=>t_divisor,
-    result=>t_result
+    numerateur=>t_dividend,
+    denominateur=>t_divisor,
+    result=>t_result,
+    data_valid=>t_valid
 );
 
 CLK : process -- process de clk : '0' pendant 5ns puis '1' pendant 5ns etc.

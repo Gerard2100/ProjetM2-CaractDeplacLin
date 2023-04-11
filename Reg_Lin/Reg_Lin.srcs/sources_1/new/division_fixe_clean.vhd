@@ -48,7 +48,7 @@ signal cptIT : integer range 0 to moduloPeriod - 1;
 signal iterate: std_logic:='0';
 
 --calcul
-signal Unumerateur: unsigned(numLength downto 0);
+signal Unumerateur: unsigned((numLength-1) downto 0);
 signal num_temporaire: unsigned((denumLength+1) downto 0);
 signal denum_temporaire: unsigned((denumLength+1) downto 0);
 signal temp_result: unsigned(denumLength downto 0);
