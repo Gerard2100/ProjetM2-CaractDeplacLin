@@ -56,7 +56,7 @@ signal final_result: unsigned(moduloPeriod-1 downto 0);
 
 
 
-type state_type is (idle,init, iteration); -- différents états de la FSM
+type state_type is (idle, iteration); -- différents états de la FSM
 signal state : state_type;
 
 begin
@@ -108,8 +108,8 @@ Unumerateur <= unsigned(numerateur);
     if clk'event and clk = '1' then
             if state = iteration then
                 if cptIT = 0 then -- init
-                    denum_temporaire(denumLength downto 0) <= unsigned(denominateur);
-                    denum_temporaire(denumLength downto 0) <= not(denum_temporaire(denumLength downto 0)+1);
+                    denum_temporaire(denumLength-1 downto 0) <= unsigned(denominateur);
+                    denum_temporaire(denumLength-1 downto 0) <= not(denum_temporaire(denumLength downto 0)+1);
                     denum_temporaire(4)<='0';
                     num_temporaire <= Unumerateur((denumLength+1) downto 0);
                     -- first it
