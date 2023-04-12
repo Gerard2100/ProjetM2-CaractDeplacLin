@@ -1,15 +1,22 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+---------------------------------------------------------------------------------- 
+-- Engineer: Léo Khalifa
 -- 
 -- Create Date: 31.03.2023 14:07:09
--- Design Name: 
 -- Module Name: Affichage - Behavioral
 -- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
+-- Target Devices: Artix-7 XC7A35T-1XPG236C4
+-- Description: Affichage pour quatre afficheurs 7 segments, 
+--
+--
+-- entrées : - données en bcd
+--           - les points des afficheurs
+--           - clock, raz, enable
+--           - le choix de couleur
+--
+-- sorties : - segments ( 7 bits )
+--           - point
+--           - anodes ( 8 bits ) 2 anodes par afficheur(une par couleur) ( multiplexage de l'afficheur par les anodes)
+--
 -- Dependencies: 
 -- 
 -- Revision:

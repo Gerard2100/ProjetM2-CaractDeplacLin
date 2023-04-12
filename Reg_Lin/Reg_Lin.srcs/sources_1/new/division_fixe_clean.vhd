@@ -9,13 +9,15 @@
 -- Target Devices: Artix-7 XC7A35T-1XPG236C4
 -- Tool Versions: 
 -- Description: 
+--  Version multiprocessuss de la division fixe
 -- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---  Version multicprocessuss de la division fixe
+-- entrées : - numérateur
+--           - dénominateur
+--           - clock, raz, enable
+--
+-- sorties : - résultat
+--           - datavalid
+--          
 ----------------------------------------------------------------------------------
 
 
