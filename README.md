@@ -1,5 +1,5 @@
 # ProjetM2-CaractDeplacLin
-Caractérisation 'un déplacement linaire en VHDL 
+Caractérisation d'un déplacement linaire en VHDL 
 
 main is for release
 
