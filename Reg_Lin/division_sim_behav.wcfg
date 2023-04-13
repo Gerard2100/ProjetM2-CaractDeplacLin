@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="division_sim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="division_sim" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="55900000fs"></ZoomStartTime>
+      <ZoomEndTime time="78850001fs"></ZoomEndTime>
+      <Cursor1Time time="75000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="130"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/division_sim/t_CLK" type="logic">
+      <obj_property name="ElementShortName">t_CLK</obj_property>
+      <obj_property name="ObjectShortName">t_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/t_RESET" type="logic">
+      <obj_property name="ElementShortName">t_RESET</obj_property>
+      <obj_property name="ObjectShortName">t_RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/t_enable" type="logic">
+      <obj_property name="ElementShortName">t_enable</obj_property>
+      <obj_property name="ObjectShortName">t_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/t_dividend" type="array">
+      <obj_property name="ElementShortName">t_dividend[7:0]</obj_property>
+      <obj_property name="ObjectShortName">t_dividend[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/t_divisor" type="array">
+      <obj_property name="ElementShortName">t_divisor[3:0]</obj_property>
+      <obj_property name="ObjectShortName">t_divisor[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/t_result" type="array">
+      <obj_property name="ElementShortName">t_result[7:0]</obj_property>
+      <obj_property name="ObjectShortName">t_result[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/t_valid" type="logic">
+      <obj_property name="ElementShortName">t_valid</obj_property>
+      <obj_property name="ObjectShortName">t_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/inst_div/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/inst_div/Unumerateur" type="array">
+      <obj_property name="ElementShortName">Unumerateur[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Unumerateur[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/inst_div/num_temporaire" type="array">
+      <obj_property name="ElementShortName">num_temporaire[5:0]</obj_property>
+      <obj_property name="ObjectShortName">num_temporaire[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/inst_div/temp_result" type="array">
+      <obj_property name="ElementShortName">temp_result[4:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_result[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/inst_div/final_result" type="array">
+      <obj_property name="ElementShortName">final_result[7:0]</obj_property>
+      <obj_property name="ObjectShortName">final_result[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/inst_div/cptIT" type="other">
+      <obj_property name="ElementShortName">cptIT</obj_property>
+      <obj_property name="ObjectShortName">cptIT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/division_sim/inst_div/cptITend" type="logic">
+      <obj_property name="ElementShortName">cptITend</obj_property>
+      <obj_property name="ObjectShortName">cptITend</obj_property>
+   </wvobject>
+</wave_config>
